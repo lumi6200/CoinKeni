@@ -1,0 +1,113 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="card-title d-flex align-items-center m-2">
+                <img src="images/bitcoin.png" width="50px">
+                <span class="mx-3">
+                    <%= bitcoin.name %> (<%= bitcoin.symbol %>)
+                </span>
+            </h5>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <span class="fw-bold">Price (USD):</span> <span class="float-end">$ <%= Math.floor(bitcoin.price_usd * 100)
+                            / 100 %></span>
+                </li>
+                <li class="list-group-item">
+                    <span class="fw-bold">24h Volume (USD):</span> <span class="float-end">$ <%=
+                            (Math.floor(bitcoin.volume_24h_usd * 100) / 100).toLocaleString() %></span>
+                </li>
+                <li class="list-group-item">
+                    <span class="fw-bold">Market Cap (USD):</span> <span class="float-end">$ <%=
+                            bitcoin.market_cap_usd.toLocaleString() %></span>
+                </li>
+                <li class="list-group-item">
+                    <span class="fw-bold">Circulating Supply:</span> <span class="float-end">
+                        <%= bitcoin.circulating_supply %>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="fw-bold">Max Supply:</span> <span class="float-end">
+                        <%= locals.bitcoin.max_supply ? bitcoin.max_supply : '∞' %>
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="fw-bold">Change (1h):</span>
+                    <span class="badge bg-<%= bitcoin.percent_change_1h < 0 ? 'danger' : 'success' %>">
+                        <%= locals.bitcoin.percent_change_1h ? bitcoin.percent_change_1h : '0' %>%
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="fw-bold">Change (24h):</span>
+                    <span class="badge bg-<%= bitcoin.percent_change_24h < 0 ? 'danger' : 'success' %>">
+                        <%= locals.bitcoin.percent_change_24h ? bitcoin.percent_change_24h : '0' %>%
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="fw-bold">Change (7d):</span>
+                    <span class="badge bg-<%= bitcoin.percent_change_7d < 0 ? 'danger' : 'success' %>">
+                        <%= locals.bitcoin.percent_change_7d ? bitcoin.percent_change_7d : '0' %>%
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="card-title d-flex align-items-center m-2">
+                <img src="images/ethereum.png" width="50px">
+                <span class="mx-3">
+                    <%= ethereum.name %> (<%= ethereum.symbol %>)
+                </span>
+            </h5>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <span class="fw-bold">Price (USD):</span> <span class="float-end">$ <%= Math.floor(ethereum.price_usd *
+                            100) / 100 %></span>
+                </li>
+                <li class="list-group-item">
+                    <span class="fw-bold">24h Volume (USD):</span> <span class="float-end">$ <%=
+                            (Math.floor(ethereum.volume_24h_usd * 100) / 100).toLocaleString() %></span>
+                </li>
+                <li class="list-group-item">
+                    <span class="fw-bold">Market Cap (USD):</span> <span class="float-end">$ <%=
+                            ethereum.market_cap_usd.toLocaleString() %></span>
+                </li>
+                <li class="list-group-item">
+                    <span class="fw-bold">Circulating Supply:</span> <span class="float-end">
+                        <%= ethereum.circulating_supply %>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="fw-bold">Max Supply:</span> <span class="float-end">
+                        <%= locals.ethereum.max_supply ? ethereum.max_supply : '∞' %>
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="fw-bold">Change (1h):</span>
+                    <span class="badge bg-<%= ethereum.percent_change_1h < 0 ? 'danger' : 'success' %>">
+                        <%= locals.ethereum.percent_change_1h ? ethereum.percent_change_1h : '0' %>%
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="fw-bold">Change (24h):</span>
+                    <span class="badge bg-<%= ethereum.percent_change_24h < 0 ? 'danger' : 'success' %>">
+                        <%= locals.ethereum.percent_change_24h ? ethereum.percent_change_24h : '0' %>%
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="fw-bold">Change (7d):</span>
+                    <span class="badge bg-<%= ethereum.percent_change_7d < 0 ? 'danger' : 'success' %>">
+                        <%= locals.ethereum.percent_change_7d ? ethereum.percent_change_7d : '0' %>%
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <%- include("partials/footer.ejs") %>
